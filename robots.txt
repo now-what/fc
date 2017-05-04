@@ -1,0 +1,11 @@
+user-agent: *
+Allow: /$
+Allow: /index.html
+Allow: /css
+Allow: /js
+Allow: /font-awesome
+Allow: /img
+Disallow: /
+
+User-agent: Googlebot-Image
+Disallow: /
