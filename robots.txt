@@ -3,7 +3,6 @@ Allow: /$
 Allow: /index.html
 Allow: /css
 Allow: /js
-Allow: /font-awesome
 Allow: /img
 Disallow: /
 
