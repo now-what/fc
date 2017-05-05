@@ -4,6 +4,7 @@ Allow: /index.html
 Allow: /css
 Allow: /js
 Allow: /img
+Allow: /zohoverify
 Disallow: /
 
 User-agent: Googlebot-Image
