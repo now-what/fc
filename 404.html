@@ -3,166 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 — page not found</title>
+    <meta name="theme-color" content="#F7F7F4">
+    <meta name="description" content="The page you're looking for could not be found.">
+
+    <title>404 - page not found | Francesco Colombo</title>
+
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22 font-family=%22monospace%22 font-weight=%22bold%22 fill=%22%2363745B%22>&gt;</text></svg>">
-    <style>
-        :root {
-            --bg: #F7F7F4;
-            --text: #222620;
-            --muted: #656B60;
-            --accent: #63745B;
-            --border: #D8D8D0;
-            --card-bg: #EFEFEA;
-            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            --font-sans: system-ui, -apple-system, sans-serif;
-        }
 
-        [data-theme="dark"] {
-            --bg: #202722;
-            --text: #F0F0E9;
-            --muted: #BDC5B9;
-            --accent: #B7C6A7;
-            --border: #333C35;
-            --card-bg: #27302A;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: var(--font-sans);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            padding: 1.5rem;
-            gap: 1.5rem;
-            text-align: center;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            max-width: 28rem;
-        }
-
-        h1 {
-            font-family: var(--font-mono);
-            font-size: 1.25rem;
-            font-weight: 500;
-            letter-spacing: -0.03em;
-        }
-
-        p {
-            color: var(--muted);
-            font-family: var(--font-mono);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .lang-switcher {
-            display: flex;
-            gap: 0.75rem;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            justify-content: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .lang-switcher button {
-            background: none;
-            border: none;
-            color: var(--muted);
-            cursor: pointer;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            padding-bottom: 2px;
-            border-bottom: 1px solid transparent;
-        }
-
-        html[lang="en"] #lang-en,
-        html[lang="it"] #lang-it,
-        html[lang="fr"] #lang-fr,
-        .lang-switcher button:hover {
-            color: var(--text);
-            border-bottom-color: var(--accent);
-        }
-
-        a.home-link {
-            color: var(--text);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            width: fit-content;
-            margin: 0 auto;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 2px;
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            transition: border-color 0.2s ease, color 0.2s ease;
-        }
-
-        a.home-link:hover {
-            color: var(--accent);
-            border-color: var(--accent);
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <nav class="lang-switcher" aria-label="Language selector">
-            <button type="button" onclick="setLanguage('en')" id="lang-en">EN</button>
-            <button type="button" onclick="setLanguage('it')" id="lang-it">IT</button>
-            <button type="button" onclick="setLanguage('fr')" id="lang-fr">FR</button>
-        </nav>
-
-        <h1 id="error-title">404 - path not found</h1>
-        <p id="error-desc">you've wandered off the trail. this page doesn't exist.</p>
-        <a href="/" class="home-link" id="home-text">&gt; back to home</a>
-    </div>
+    <link rel="stylesheet" href="/assets/style.css">
 
     <script>
-        var translations = {
-            en: {
-                title: "404 - path not found",
-                desc: "you've wandered off the trail. this page doesn't exist.",
-                home: "> back to home"
-            },
-            it: {
-                title: "404 - percorso non trovato",
-                desc: "sei uscito dal sentiero. questa pagina non esiste.",
-                home: "> torna alla home"
-            },
-            fr: {
-                title: "404 - chemin introuvable",
-                desc: "vous avez quitté le sentier. cette page n'existe pas.",
-                home: "> retour à l'accueil"
-            }
-        };
-
-        function setLanguage(lang) {
-            if (!translations[lang]) return;
-            document.documentElement.setAttribute('lang', lang);
-            var t = translations[lang];
-            document.getElementById('error-title').textContent = t.title;
-            document.getElementById('error-desc').textContent = t.desc;
-            document.getElementById('home-text').textContent = t.home;
-            try {
-                localStorage.setItem('preferredLang', lang);
-            } catch(e) {}
-        }
-
-        var savedLang = 'en';
         try {
-            savedLang = localStorage.getItem('preferredLang') || 'en';
-        } catch(e) {}
-        
-        setLanguage(translations[savedLang] ? savedLang : 'en');
+            var theme = localStorage.getItem('theme');
+            if (theme === 'light' || theme === 'dark') {
+                document.documentElement.dataset.theme = theme;
+            }
+        } catch (e) {}
+
+        try {
+            var savedLang = localStorage.getItem('preferredLang');
+            if (['en', 'it', 'fr'].includes(savedLang)) {
+                document.documentElement.lang = savedLang;
+            } else {
+                var browserLangs = navigator.languages || [navigator.language];
+                var detected = browserLangs
+                    .map(function (lang) { return lang.slice(0, 2).toLowerCase(); })
+                    .find(function (lang) { return ['en', 'it', 'fr'].includes(lang); });
+
+                if (detected) document.documentElement.lang = detected;
+            }
+        } catch (e) {}
     </script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <header>
+        <a href="/" class="wordmark" aria-label="Francesco Colombo home">&gt; fc</a>
+
+        <div class="nav-controls">
+            <nav class="lang-switcher" aria-label="Language selector">
+                <a href="/" lang="en" hreflang="en" id="lang-en">EN</a>
+                <a href="/it/" lang="it" hreflang="it" id="lang-it">IT</a>
+                <a href="/fr/" lang="fr" hreflang="fr" id="lang-fr">FR</a>
+            </nav>
+
+            <button
+                type="button"
+                class="theme-toggle"
+                id="theme-toggle-btn"
+                aria-label="Switch to dark theme"
+                data-dark-text="Dark"
+                data-dark-label="Switch to dark theme"
+                data-light-text="Light"
+                data-light-label="Switch to light theme"
+                hidden>
+                Dark
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+        <section class="error-page">
+            <p class="error-code" aria-hidden="true">404</p>
+
+            <h1 id="error-title">Page not found</h1>
+
+            <p id="error-desc">
+                You've wandered off the trail. This page doesn't exist.
+            </p>
+
+            <a href="/" class="home-link" id="home-link">
+                &gt; Back to home
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <span>&copy; 2026 Francesco Colombo</span>
+        <span>built with HTML, CSS &amp; vanilla JS</span>
+    </footer>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var translations = {
+                en: {
+                    title: 'Page not found',
+                    desc: "You've wandered off the trail. This page doesn't exist.",
+                    home: '> Back to home',
+                    pageTitle: '404 - page not found | Francesco Colombo'
+                },
+                it: {
+                    title: 'Pagina non trovata',
+                    desc: 'Hai perso il sentiero. Questa pagina non esiste.',
+                    home: '> Torna alla home',
+                    pageTitle: '404 - pagina non trovata | Francesco Colombo'
+                },
+                fr: {
+                    title: 'Page introuvable',
+                    desc: "Vous avez quitté le sentier. Cette page n'existe pas.",
+                    home: '> Retour à l’accueil',
+                    pageTitle: '404 - page introuvable | Francesco Colombo'
+                }
+            };
+
+            var root = document.documentElement;
+            var lang = translations[root.lang] ? root.lang : 'en';
+
+            function setLanguage(lang) {
+                var t = translations[lang];
+                if (!t) return;
+
+                root.lang = lang;
+
+                document.getElementById('error-title').textContent = t.title;
+                document.getElementById('error-desc').textContent = t.desc;
+
+                var homeLink = document.getElementById('home-link');
+                homeLink.textContent = t.home;
+                homeLink.href = '/' + lang + '/';
+
+                document.title = t.pageTitle;
+
+                ['en', 'it', 'fr'].forEach(function (code) {
+                    var link = document.getElementById('lang-' + code);
+
+                    if (code === lang) {
+                        link.setAttribute('aria-current', 'page');
+                    } else {
+                        link.removeAttribute('aria-current');
+                    }
+                });
+
+                try {
+                    localStorage.setItem('preferredLang', lang);
+                } catch (e) {}
+            }
+
+            setLanguage(lang);
+        })();
+    </script>
+
+    <script src="/assets/site.js"></script>
 </body>
 </html>

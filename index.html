@@ -1,456 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francesco Colombo</title>
-    <meta name="description" id="meta-description" content="Software engineer living in the Toulouse countryside. Focused on fincrime tech, sustainability, and simple systems.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22 font-family=%22monospace%22 font-weight=%22bold%22 fill=%22%2363745B%22>&gt;</text></svg>">
-    
-    <style>
-        :root {
-            --bg: #F7F7F4;
-            --text: #222620;
-            --muted: #656B60;
-            --accent: #63745B;
-            --border: #D8D8D0;
-            --card-bg: #EFEFEA;
-            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-
-        [data-theme="dark"] {
-            --bg: #202722;
-            --text: #F0F0E9;
-            --muted: #BDC5B9;
-            --accent: #B7C6A7;
-            --border: #333C35;
-            --card-bg: #27302A;
-        }
-
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: var(--font-sans);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            transition: background-color 0.2s ease, color 0.2s ease;
-        }
-
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 1rem;
-            background: var(--text);
-            color: var(--bg);
-            padding: 0.5rem 1rem;
-            z-index: 100;
-            text-decoration: none;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            border-radius: 4px;
-        }
-
-        .skip-link:focus {
-            top: 1rem;
-        }
-
-        header {
-            max-width: 42rem;
-            margin: 0 auto;
-            width: 100%;
-            padding: 2.5rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .wordmark {
-            font-family: var(--font-mono);
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--text);
-            text-decoration: none;
-            letter-spacing: -0.02em;
-        }
-
-        .nav-controls {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .lang-switcher {
-            display: flex;
-            gap: 0.75rem;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-        }
-
-        .lang-switcher button {
-            background: none;
-            border: none;
-            color: var(--muted);
-            cursor: pointer;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            padding-bottom: 2px;
-            border-bottom: 1px solid transparent;
-        }
-
-        html[lang="en"] #lang-en,
-        html[lang="it"] #lang-it,
-        html[lang="fr"] #lang-fr,
-        .lang-switcher button:hover {
-            color: var(--text);
-            border-bottom-color: var(--accent);
-        }
-
-        .theme-toggle {
-            background: none;
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 0.4rem 0.75rem;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-        }
-
-        .theme-toggle:hover {
-            border-color: var(--accent);
-            background: var(--card-bg);
-        }
-
-        main {
-            max-width: 42rem;
-            margin: 0 auto;
-            width: 100%;
-            padding: 1rem 1.5rem 5rem 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 3.5rem;
-        }
-
-        section {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-        }
-
-        h1, h2 {
-            font-family: var(--font-mono);
-            font-weight: 500;
-            color: var(--text);
-            letter-spacing: -0.03em;
-        }
-
-        h1 {
-            font-size: clamp(2rem, 4vw, 2.75rem);
-            line-height: 1.2;
-        }
-
-        h2 {
-            font-size: 1.1rem;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        p {
-            color: var(--text);
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-
-        .hero-intro {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .rotating-container {
-            font-family: var(--font-mono);
-            font-size: 1.1rem;
-            color: var(--accent);
-            height: 1.8rem;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .rotating-text {
-            display: inline-block;
-            transition: transform 0.4s ease, opacity 0.4s ease;
-        }
-
-        .fade-out {
-            opacity: 0;
-            transform: translateY(-8px);
-        }
-
-        .hero-body {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-        }
-
-        .link-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            font-family: var(--font-mono);
-            font-size: 0.95rem;
-        }
-
-        .link-list a {
-            color: var(--text);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            width: fit-content;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 2px;
-            transition: border-color 0.2s ease, color 0.2s ease;
-        }
-
-        .link-list a:hover {
-            color: var(--accent);
-            border-color: var(--accent);
-        }
-
-        footer {
-            max-width: 42rem;
-            margin: 0 auto;
-            width: 100%;
-            padding: 2rem 1.5rem;
-            border-top: 1px solid var(--border);
-            font-size: 0.85rem;
-            color: var(--muted);
-            font-family: var(--font-mono);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .rotating-text {
-                transition: none !important;
-            }
-            html {
-                scroll-behavior: auto;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Francesco Colombo</title>
+<link rel="canonical" href="https://www.francescocolombo.me/">
+<link rel="alternate" hreflang="en" href="https://www.francescocolombo.me/">
+<link rel="alternate" hreflang="it" href="https://www.francescocolombo.me/it/">
+<link rel="alternate" hreflang="fr" href="https://www.francescocolombo.me/fr/">
+<link rel="alternate" hreflang="x-default" href="https://www.francescocolombo.me/">
+<meta name="description" content="Software engineer living in the Toulouse countryside. Focused on fincrime tech, sustainability, and simple systems.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Francesco Colombo">
+<meta property="og:title" content="Francesco Colombo">
+<meta property="og:description" content="Software engineer living in the Toulouse countryside. Focused on fincrime tech, sustainability, and simple systems.">
+<meta property="og:url" content="https://www.francescocolombo.me/">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:image" content="https://www.francescocolombo.me/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Francesco Colombo, software engineer at Monzo Bank">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Francesco Colombo">
+<meta name="twitter:description" content="Software engineer living in the Toulouse countryside. Focused on fincrime tech, sustainability, and simple systems.">
+<meta name="twitter:image" content="https://www.francescocolombo.me/og-image.jpg">
+<meta name="twitter:image:alt" content="Francesco Colombo, software engineer at Monzo Bank">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22 font-family=%22monospace%22 font-weight=%22bold%22 fill=%22%2363745B%22>&gt;</text></svg>">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/site.js"></script>
 </head>
 <body>
-
-    <a href="#main-content" class="skip-link" id="skip-link-text">Skip to content</a>
-
-    <header>
-        <a href="#main-content" class="wordmark">&gt; fc</a>
-        <div class="nav-controls">
-            <nav class="lang-switcher" aria-label="Language selector">
-                <button type="button" onclick="setLanguage('en')" id="lang-en">EN</button>
-                <button type="button" onclick="setLanguage('it')" id="lang-it">IT</button>
-                <button type="button" onclick="setLanguage('fr')" id="lang-fr">FR</button>
-            </nav>
-            <button type="button" class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle theme">Dark</button>
-        </div>
-    </header>
-
-    <main id="main-content">
-        <section class="hero-intro">
-            <h1 id="hero-greeting">Hello, I'm Francesco.</h1>
-            <div class="rotating-container" aria-live="polite">
-                <span id="rotating-fact" class="rotating-text">💻 software engineer</span>
-            </div>
-            
-            <div class="hero-body">
-                <p id="hero-bio-1"></p>
-                <p id="hero-bio-2"></p>
-            </div>
-        </section>
-
-        <section>
-            <h2 id="heading-contact">Contact &amp; Links</h2>
-            <ul class="link-list">
-                <li><a href="#" id="link-email">Email - loading...</a></li>
-                <li><a href="https://github.com/now-what" target="_blank" rel="noopener">GitHub - @now-what</a></li>
-                <li><a href="https://www.linkedin.com/in/francescocolombo" target="_blank" rel="noopener">LinkedIn - francescocolombo</a></li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <span>&copy; 2026 Francesco Colombo</span>
-        <span id="footer-tech">built with HTML, CSS &amp; vanilla JS</span>
-    </footer>
-
-    <script>
-        var translations = {
-            en: {
-                metaDesc: "Software engineer living in the Toulouse countryside. Focused on fincrime tech, sustainability, and simple systems.",
-                skip: "Skip to content",
-                greeting: "Hello, I'm Francesco.",
-                facts: [
-                    "💻 software engineer",
-                    "👨‍👧‍👦 father",
-                    "👦 brother",
-                    "🧳 ex-nomad",
-                    "📰 ex local journalist",
-                    "🎸 80s metal head",
-                    "⚡ Deep Purple (& family) nut",
-                    "🏎️ Formula 1 fan",
-                    "🐍 Alfista",
-                    "🏀 back on the court after 20 years"
-                ],
-                bio1: "I live in the countryside near Toulouse, France. I've been with Monzo Bank since 2016, where I initially built deep expertise in Anti-Money Laundering (AML), financial crime, and fraud investigation (backed by ICA qualifications), before retraining as a software engineer to build the tools used by investigators when customers report fraud. I am always learning.",
-                bio2: "I am drawn to simplicity, thoughtful choices, and things built to last: buying less, avoiding waste, and enjoying the slower pace of rural life.",
-                contactTitle: "Contact & Links",
-                footerTech: "built with HTML, CSS & vanilla JS"
-            },
-            it: {
-                metaDesc: "Ingegnere del software che vive nella campagna di Tolosa. Focalizzato su tecnologia fincrime, sostenibilità e sistemi semplici.",
-                skip: "Vai al contenuto",
-                greeting: "Ciao, sono Francesco.",
-                facts: [
-                    "💻 sviluppatore software",
-                    "👨‍👧‍👦 padre",
-                    "👦 fratello",
-                    "🧳 ex nomade",
-                    "📰 ex giornalista locale (iscritto all'ordine)",
-                    "🎸 appassionato di metal anni '80",
-                    "⚡ fan dei Deep Purple (e famiglia)",
-                    "🏎️ appassionato di Formula 1",
-                    "🐍 Alfista",
-                    "🏀 di nuovo in campo dopo 20 anni"
-                ],
-                bio1: "Vivo nella campagna vicino a Tolosa, in Francia. Lavoro in Monzo Bank dal 2016, dove ho inizialmente sviluppato una profonda competenza in Anti-Riciclaggio (AML), reati finanziari e investigazione delle frodi (con il supporto delle qualifiche ICA), per poi formarmi come sviluppatore software e contribuire alla realizzazione degli strumenti utilizzati dagli investigatori quando i clienti segnalano una frode. Continuo sempre ad imparare.",
-                bio2: "Mi attraggono la semplicità, le scelte ponderate e le cose fatte per durare: comprare meno, evitare gli sprechi e godersi i ritmi più lenti della vita rurale.",
-                contactTitle: "Contatti e link",
-                footerTech: "fatto con HTML, CSS e vanilla JS"
-            },
-            fr: {
-                metaDesc: "Ingénieur logiciel vivant dans la campagne près de Toulouse. Axé sur la tech fincrime, la durabilité et les systèmes simples.",
-                skip: "Aller au contenu",
-                greeting: "Bonjour, je suis Francesco.",
-                facts: [
-                    "💻 développeur logiciel",
-                    "👨‍👧‍👦 père",
-                    "👦 frère",
-                    "🧳 ex-nomade",
-                    "📰 ex-journaliste local",
-                    "🎸 fondu de metal des années 80",
-                    "⚡ fan de Deep Purple (et famille)",
-                    "🏎️ fan de Formule 1",
-                    "🐍 Alfiste",
-                    "🏀 de retour sur les terrains après 20 ans"
-                ],
-                bio1: "Je vis dans la campagne près de Toulouse, en France. Je suis chez Monzo Bank depuis 2016, où j'ai d'abord acquis une solide expertise dans l'anti-blanchiment (AML), la criminalité financière et l'investigation des fraudes (appuyée par des qualifications de l'ICA), avant de me former comme développeur logiciel pour concevoir les outils utilisés par les enquêteurs lorsque les clients signalent une fraude. J'apprends en permanent.",
-                bio2: "Je suis attiré par la simplicité, les choix réfléchis et les choses conçues pour durer : acheter moins, éviter le gaspillage et apprécier les rythmes plus lents de la vie rurale.",
-                contactTitle: "Contact et liens",
-                footerTech: "fait avec HTML, CSS et vanilla JS"
-            }
-        };
-
-        var currentLang = 'en';
-        var factIndex = 0;
-
-        function setLanguage(lang) {
-            if (!translations[lang]) return;
-            currentLang = lang;
-            document.documentElement.setAttribute('lang', lang);
-
-            var t = translations[lang];
-            document.getElementById('meta-description').setAttribute('content', t.metaDesc);
-            document.getElementById('skip-link-text').textContent = t.skip;
-            document.getElementById('hero-greeting').textContent = t.greeting;
-            document.getElementById('hero-bio-1').textContent = t.bio1;
-            document.getElementById('hero-bio-2').textContent = t.bio2;
-            document.getElementById('heading-contact').textContent = t.contactTitle;
-            document.getElementById('footer-tech').textContent = t.footerTech;
-
-            factIndex = 0;
-            var el = document.getElementById('rotating-fact');
-            if (el) el.textContent = t.facts[0];
-        }
-
-        function updateRotatingFact() {
-            var facts = translations[currentLang].facts;
-            var el = document.getElementById('rotating-fact');
-            if (!el) return;
-
-            el.classList.add('fade-out');
-            setTimeout(function() {
-                factIndex = (factIndex + 1) % facts.length;
-                el.textContent = facts[factIndex];
-                el.classList.remove('fade-out');
-            }, 400);
-        }
-
-        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            setInterval(updateRotatingFact, 4000);
-        }
-
-        var themeBtn = document.getElementById('theme-toggle-btn');
-        var htmlEl = document.documentElement;
-
-        function setTheme(theme) {
-            htmlEl.setAttribute('data-theme', theme);
-            themeBtn.textContent = theme === 'dark' ? 'Light' : 'Dark';
-            try {
-                localStorage.setItem('theme', theme);
-            } catch(e) {}
-        }
-
-        themeBtn.addEventListener('click', function() {
-            var current = htmlEl.getAttribute('data-theme');
-            setTheme(current === 'dark' ? 'light' : 'dark');
-        });
-
-        var savedTheme = null;
-        try {
-            savedTheme = localStorage.getItem('theme');
-        } catch(e) {}
-        
-        if (savedTheme) {
-            setTheme(savedTheme);
-        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            setTheme('dark');
-        } else {
-            setTheme('light');
-        }
-
-        // Initialize language & text on page load
-        setLanguage(currentLang);
-
-        // Dynamic anti-scraper email injection
-        var user = "hello";
-        var domain = "francescocolombo.me";
-        var email = user + "@" + domain;
-
-        var emailLink = document.getElementById('link-email');
-        if (emailLink) {
-            emailLink.href = "mailto:" + email;
-            emailLink.textContent = "Email — " + email;
-        }
-    </script>
+<a href="#main-content" class="skip-link">Skip to content</a>
+<header>
+<a href="./" class="wordmark" aria-label="fc, Francesco Colombo">&gt; fc</a>
+<div class="nav-controls">
+<nav class="lang-switcher" aria-label="Language selector">
+<a href="./" hreflang="en" lang="en" aria-current="page">EN</a>
+<a href="it/" hreflang="it" lang="it">IT</a>
+<a href="fr/" hreflang="fr" lang="fr">FR</a>
+</nav>
+<button type="button" class="theme-toggle" id="theme-toggle-btn" aria-label="Switch to dark theme" data-dark-text="Dark" data-dark-label="Switch to dark theme" data-light-text="Light" data-light-label="Switch to light theme" hidden>Dark</button>
+</div>
+</header>
+<main id="main-content" tabindex="-1">
+<section class="hero-intro">
+<h1>Hello, I'm Francesco.</h1>
+<div class="rotator-row">
+<div class="rotating-container" aria-hidden="true">
+<span id="rotating-fact" class="rotating-text">💻 software engineer</span>
+</div>
+<button type="button" class="pause-btn" id="pause-btn" data-paused="false" aria-label="Pause the rotating facts" data-pause-label="Pause the rotating facts" data-resume-label="Resume the rotating facts" hidden>
+<span class="icon-pause" aria-hidden="true">❚❚</span><span class="icon-play" aria-hidden="true">▶</span>
+</button>
+</div>
+<ul class="visually-hidden" id="facts" aria-label="Quick facts">
+<li><span aria-hidden="true">💻</span> software engineer</li>
+<li><span aria-hidden="true">👨‍👧‍👦</span> father</li>
+<li><span aria-hidden="true">👦</span> brother</li>
+<li><span aria-hidden="true">🧳</span> ex-nomad</li>
+<li><span aria-hidden="true">📰</span> ex local journalist</li>
+<li><span aria-hidden="true">🎸</span> 80s metal head</li>
+<li><span aria-hidden="true">⚡</span> Deep Purple (&amp; family) nut</li>
+<li><span aria-hidden="true">🏎️</span> Formula 1 fan</li>
+<li><span aria-hidden="true">🐍</span> Alfista</li>
+<li><span aria-hidden="true">🏀</span> back on the court after 20 years</li>
+</ul>
+<div class="hero-body">
+<p>I live in the countryside near Toulouse, France. I've been with Monzo Bank since 2016, where I initially built deep expertise in Anti-Money Laundering (AML), financial crime, and fraud investigation (backed by ICA qualifications).</p>
+<p>I then retrained as a software engineer, building the tools investigators use when customers report fraud.</p>
+<p>I am drawn to simplicity, thoughtful choices, and things built to last: buying less, avoiding waste, and enjoying the slower pace of rural life.</p>
+</div>
+</section>
+<section>
+<h2>Contact &amp; Links</h2>
+<ul class="link-list">
+<li><a href="mailto:hello@francescocolombo.me">Email - hello@francescocolombo.me</a></li>
+<li><a href="https://github.com/now-what">GitHub - @now-what</a></li>
+<li><a href="https://www.linkedin.com/in/francescocolombo">LinkedIn - francescocolombo</a></li>
+</ul>
+</section>
+</main>
+<footer>
+<span>&copy; 2026 Francesco Colombo</span>
+<span>built with HTML, CSS &amp; vanilla JS</span>
+</footer>
 </body>
 </html>

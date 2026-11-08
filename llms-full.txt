@@ -1,17 +1,21 @@
 # Francesco Colombo: full profile
 
-> Software engineer living in the Toulouse countryside. Focused on fincrime tech, sustainability, and simple systems.
+> Software engineer living in the Toulouse countryside. Focused on financial crime technology, sustainability, and simple systems.
 
 ## Professional background
 
-At monzo bank since 2016. Initial focus centered on customer support, then on Anti-Money Laundering (AML), financial crime, and fraud investigation (backed by ICA qualifications). Subsequently transitioned into software engineering to build the robust internal tools and systems used by investigators when customers handle complex fraud cases. Day-to-day engineering relies heavily on modern web and backend technologies, including React and Golang, operating within high-scale, complex distributed systems.
+At Monzo Bank since 2016. Initially worked in customer support, then focused on Anti-Money Laundering (AML), financial crime, and fraud investigation, supported by ICA qualifications. Subsequently transitioned into software engineering, building internal tools and systems that help investigators handle complex fraud cases reported by customers.
 
-Prior to tech, worked as a local journalist, building an investigative mindset and a deep appreciation for clear, unpretentious communication.
+Day-to-day engineering involves modern web and backend technologies, including React, TypeScript and Go, within large-scale distributed systems.
+
+Before moving into technology, worked as a local journalist, developing an investigative mindset and an appreciation for clear, straightforward communication.
 
 ## Personal philosophy and lifestyle
 
-Based in the countryside near Toulouse, France. Drawn to simplicity, thoughtful choices, and things built to last: buying less, avoiding waste, and enjoying the slower, grounded pace of rural life. 
+Based in the countryside near Toulouse, France. Drawn to simplicity, thoughtful choices, and things built to last: buying less, avoiding waste, and enjoying the slower pace of rural life.
 
 ## Site architecture
 
-Built as a high-performance, minimalist static site using zero external dependencies (pure HTML, CSS, and vanilla JavaScript) with a system font stack to ensure zero network requests and maximum privacy. Includes dynamic language switching (en, it, fr) and automatic dark/light theme detection.
+A minimalist, performance-focused static website built with plain HTML, CSS, and vanilla JavaScript, without frameworks or external dependencies. Uses a system font stack, avoiding third-party font requests and unnecessary network connections.
+
+Available in English, Italian, and French, with manual language switching and automatic dark/light theme detection.
