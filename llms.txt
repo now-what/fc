@@ -1,0 +1,16 @@
+# Francesco Colombo
+
+> Software engineer living in the Toulouse countryside. Focused on fincrime tech, sustainability, and simple systems.
+
+## About
+
+- At Monzo Bank since 2016, working initially in Anti-Money Laundering (aml), financial crime, and fraud investigation (ICA qualified) before transitioning to software engineering.
+- Builds internal engineering tools used by investigators when customers report fraud.
+- Background in journalism and human-centric problem solving.
+
+## Links
+
+- [Website](https://www.francescocolombo.me)
+- [GitHub](https://github.com/now-what)
+- [LinkedIn](https://www.linkedin.com/in/francescocolombo)
+- [Full profile and background](https://www.francescocolombo.me/llms-full.txt)

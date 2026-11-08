@@ -1,0 +1,17 @@
+# Francesco Colombo: full profile
+
+> Software engineer living in the Toulouse countryside. Focused on fincrime tech, sustainability, and simple systems.
+
+## Professional background
+
+At monzo bank since 2016. Initial focus centered on customer support, then on Anti-Money Laundering (AML), financial crime, and fraud investigation (backed by ICA qualifications). Subsequently transitioned into software engineering to build the robust internal tools and systems used by investigators when customers handle complex fraud cases. Day-to-day engineering relies heavily on modern web and backend technologies, including React and Golang, operating within high-scale, complex distributed systems.
+
+Prior to tech, worked as a local journalist, building an investigative mindset and a deep appreciation for clear, unpretentious communication.
+
+## Personal philosophy and lifestyle
+
+Based in the countryside near Toulouse, France. Drawn to simplicity, thoughtful choices, and things built to last: buying less, avoiding waste, and enjoying the slower, grounded pace of rural life. 
+
+## Site architecture
+
+Built as a high-performance, minimalist static site using zero external dependencies (pure HTML, CSS, and vanilla JavaScript) with a system font stack to ensure zero network requests and maximum privacy. Includes dynamic language switching (en, it, fr) and automatic dark/light theme detection.

@@ -1,188 +1,168 @@
----
-permalink: /404.html
----
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — page not found</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22 font-family=%22monospace%22 font-weight=%22bold%22 fill=%22%2363745B%22>&gt;</text></svg>">
+    <style>
+        :root {
+            --bg: #F7F7F4;
+            --text: #222620;
+            --muted: #656B60;
+            --accent: #63745B;
+            --border: #D8D8D0;
+            --card-bg: #EFEFEA;
+            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            --font-sans: system-ui, -apple-system, sans-serif;
+        }
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Error page - Francesco Colombo: Italian Journalist ~ SEO Copywriter ~ Local SEO and online presence management for small businesses ~ Web Design">
-    <meta name="author" content="Francesco Colombo">
-	<!-- Analytics -->
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        [data-theme="dark"] {
+            --bg: #202722;
+            --text: #F0F0E9;
+            --muted: #BDC5B9;
+            --accent: #B7C6A7;
+            --border: #333C35;
+            --card-bg: #27302A;
+        }
 
-			ga('create', 'UA-46281530-10', 'auto');
-			ga('send', 'pageview');
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--font-sans);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 1.5rem;
+            gap: 1.5rem;
+            text-align: center;
+        }
 
-	</script>
-	<!-- Favicons -->
-	<link rel="apple-touch-icon-precomposed" href="favicon/check-box-icon-152-213241.png">
-	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="favicon/check-box-icon-152-213241.png">
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicon/check-box-icon-144-213241.png">
-	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="favicon/check-box-icon-120-213241.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicon/check-box-icon-114-213241.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicon/check-box-icon-72-213241.png">
-	<link rel="apple-touch-icon-precomposed" href="favicon/check-box-icon-57-213241.png">
-	<link rel="icon" href="favicon/check-box-icon-32-213241.png" sizes="32x32">
-	<meta name="msapplication-TileColor" content="#ffffff" />
-	<meta name="msapplication-TileImage" content="favicon/check-box-icon-144-213241.png">
-	
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            max-width: 28rem;
+        }
 
-    <title>Error ~ Francesco Colombo SEO Journalist</title>
+        h1 {
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+        }
 
-    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+        p {
+            color: var(--muted);
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
 
-    <!-- Custom CSS -->
-    <link href="/css/freelancer.css" rel="stylesheet">
+        .lang-switcher {
+            display: flex;
+            gap: 0.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
 
-    <!-- Custom Fonts -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+        .lang-switcher button {
+            background: none;
+            border: none;
+            color: var(--muted);
+            cursor: pointer;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            padding-bottom: 2px;
+            border-bottom: 1px solid transparent;
+        }
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        html[lang="en"] #lang-en,
+        html[lang="it"] #lang-it,
+        html[lang="fr"] #lang-fr,
+        .lang-switcher button:hover {
+            color: var(--text);
+            border-bottom-color: var(--accent);
+        }
 
+        a.home-link {
+            color: var(--text);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: fit-content;
+            margin: 0 auto;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+
+        a.home-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+    </style>
 </head>
+<body>
 
-<body id="page-top" class="index">
+    <div class="container">
+        <nav class="lang-switcher" aria-label="Language selector">
+            <button type="button" onclick="setLanguage('en')" id="lang-en">EN</button>
+            <button type="button" onclick="setLanguage('it')" id="lang-it">IT</button>
+            <button type="button" onclick="setLanguage('fr')" id="lang-fr">FR</button>
+        </nav>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">Francesco Colombo</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="/../#portfolio">Work</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="/../#about">About</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="/../#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <img class="img-responsive" src="/img/error.png" alt="Error">
-                    <div class="intro-text">
-                        <span class="name">Error</span>
-                        <hr class="star-light">
-                        <span class="skills">If you are here, something is not right. Please go back to the main page.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-	<!-- Footer -->
-    <footer class="text-center">
-        <div class="footer-above">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-col col-md-4">
-                        <h3>Current location</h3>
-                        <p>Lieu-dit Ganchat<br>Mondavezan, Midi-Pyrénées, France</p>
-                    </div>
-                    <div class="footer-col col-md-4">
-                        <h3>Around the Web</h3>
-                        <ul class="list-inline">
-                            <li>
-                                <a href="http://www.facebook.com/francesco.colombo7" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a href="http://plus.google.com/117301062394924419979" rel="author" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
-                            </li>
-                            <li>
-                                <a href="http://twitter.com/francescolombo" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="http://www.linkedin.com/in/francescocolombo" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a href="http://www.instagram.com/francesco_colombo/" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-instagram"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footer-col col-md-4">
-                        <h3>Hire me</h3>
-                        <p>Fees, quotes, more examples of work, and references available upon request.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-below">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        Copyright &copy; Francesco Colombo 2015-2017 ~ P.IVA / VAT 09316950964 ~ <a href="mailto:francesco.colombo@pec.giornalistilombardia.it">Certified email (PEC)</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-    <div class="scroll-top page-scroll visible-xs visible-sm">
-        <a class="btn btn-primary" href="#page-top">
-            <i class="fa fa-chevron-up"></i>
-        </a>
+        <h1 id="error-title">404 - path not found</h1>
+        <p id="error-desc">you've wandered off the trail. this page doesn't exist.</p>
+        <a href="/" class="home-link" id="home-text">&gt; back to home</a>
     </div>
 
-   <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        var translations = {
+            en: {
+                title: "404 - path not found",
+                desc: "you've wandered off the trail. this page doesn't exist.",
+                home: "> back to home"
+            },
+            it: {
+                title: "404 - percorso non trovato",
+                desc: "sei uscito dal sentiero. questa pagina non esiste.",
+                home: "> torna alla home"
+            },
+            fr: {
+                title: "404 - chemin introuvable",
+                desc: "vous avez quitté le sentier. cette page n'existe pas.",
+                home: "> retour à l'accueil"
+            }
+        };
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        function setLanguage(lang) {
+            if (!translations[lang]) return;
+            document.documentElement.setAttribute('lang', lang);
+            var t = translations[lang];
+            document.getElementById('error-title').textContent = t.title;
+            document.getElementById('error-desc').textContent = t.desc;
+            document.getElementById('home-text').textContent = t.home;
+            try {
+                localStorage.setItem('preferredLang', lang);
+            } catch(e) {}
+        }
 
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="/js/classie.js"></script>
-    <script type="text/javascript"> // was cbpAnimatedHeader.js
-	var cbpAnimatedHeader=function(){function e(){window.addEventListener("scroll",function(e){s||(s=!0,setTimeout(n,250))},!1)}function n(){var e=o();e>=r?(classie.add(t,"navbar-shrink"),$(".scroll-top").removeClass("hidden-sm hidden-xs"),$(".scroll-top").fadeIn(500)):(classie.remove(t,"navbar-shrink"),$(".scroll-top").fadeOut(500,function(){$(".scroll-top").addClass("hidden-sm hidden-xs")})),s=!1}function o(){return window.pageYOffset||d.scrollTop}var d=document.documentElement,t=document.querySelector(".navbar-fixed-top"),s=!1,r=300;e()}();
-	</script>
-
-   <!-- Custom Theme JavaScript minified from js/freelancer.js -->
-    <script type="text/javascript">
-	$(function(){$("body").on("click",".page-scroll a",function(o){var l=$(this);$("html, body").stop().animate({scrollTop:$(l.attr("href")).offset().top},1500,"easeInOutExpo"),o.preventDefault()})}),$(function(){$("body").on("input propertychange",".floating-label-form-group",function(o){$(this).toggleClass("floating-label-form-group-with-value",!!$(o.target).val())}).on("focus",".floating-label-form-group",function(){$(this).addClass("floating-label-form-group-with-focus")}).on("blur",".floating-label-form-group",function(){$(this).removeClass("floating-label-form-group-with-focus")})}),$("body").scrollspy({target:".navbar-fixed-top"}),$(".navbar-collapse ul li a:not(.dropdown-toggle)").click(function(){$(".navbar-toggle:visible").click()});
-	</script>
-
+        var savedLang = 'en';
+        try {
+            savedLang = localStorage.getItem('preferredLang') || 'en';
+        } catch(e) {}
+        
+        setLanguage(translations[savedLang] ? savedLang : 'en');
+    </script>
 </body>
-
 </html>
